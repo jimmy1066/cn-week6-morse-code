@@ -9,3 +9,15 @@ morse_code_dict = {
     '-.--.': '(', '-.--.-': ')', '.-...': '&', '---...': ':', '-.-.-.': ';', '-...-': '=', 
     '.-.-.': '+', '-....-': '-', '..--.-': '_', '.-..-.': '"', '...-..-': '$', '.--.-.': '@'
 }
+
+def decode_from_morse(morse_code):
+    morse_code += ' '  
+    decipher_text = ''
+    letter_morse = ''
+    for symbol in morse_code:
+        if symbol != ' ':
+            letter_morse += symbol
+        else:
+            decipher_text += list(morse_code_dict.keys())[list(morse_code_dict.values()).index(letter_morse)]
+            letter_morse = ''
+    return decipher_text
