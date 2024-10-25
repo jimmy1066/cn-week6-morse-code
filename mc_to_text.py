@@ -11,6 +11,7 @@ morse_code_dict = {
 }
 
 def decode_from_morse(morse_code):
+    global morse_code_dict
     morse_code += ' '  
     decipher_text = ''
     letter_morse = ''
@@ -18,6 +19,8 @@ def decode_from_morse(morse_code):
         if symbol != ' ':
             letter_morse += symbol
         else:
-            decipher_text += list(morse_code_dict.keys())[list(morse_code_dict.values()).index(letter_morse)]
+            decipher_text += morse_code_dict[letter_morse]
             letter_morse = ''
     return decipher_text
+
+print(decode_from_morse("--. --- --- ... ."))
